@@ -1,181 +1,56 @@
-let lang = prompt("Select Lang");
-let month;
-let msg;
-switch (lang) {
-  case "fr":
-    lang = "Français";
-    month = prompt("Saisissez un mois.");
-    switch (month) {
-      case "1":
-        msg = "Janvier";
-        break;
-      case "2":
-        msg = "Février";
-        break;
-      case "3":
-        msg = "Mars";
-        break;
-      case "4":
-        msg = "Avril";
-        break;
-      case "5":
-        msg = "Mai";
-        break;
-      case "6":
-        msg = "Juin";
-        break;
-      case "7":
-        msg = "Juillet";
-        break;
-      case "8":
-        msg = "Août";
-        break;
-      case "9":
-        msg = "Septembre";
-        break;
-      case "10":
-        msg = "Octobre";
-        break;
-      case "11":
-        msg = "Novembre";
-        break;
-      case "12":
-        msg = "Décembre";
-        break;
-        default:
-            lang = "?"
-    }
-    break;
-  case "en":
-    lang = "English";
-    month = prompt("Enter a month.");
-    switch (month) {
-      case "1":
-        msg = "January";
-        break;
-      case "2":
-        msg = "February";
-        break;
-      case "3":
-        msg = "March";
-        break;
-      case "4":
-        msg = "April";
-        break;
-      case "5":
-        msg = "May";
-        break;
-      case "6":
-        msg = "June";
-        break;
-      case "7":
-        msg = "July";
-        break;
-      case "8":
-        msg = "August";
-        break;
-      case "9":
-        msg = "September";
-        break;
-      case "10":
-        msg = "October";
-        break;
-      case "11":
-        msg = "November";
-        break;
-      case "12":
-        msg = "December";
-        break;
-        default:
-            lang = "?"
-    }
-    break;
-  case "ru":
-    lang = "Русский";
-    month = prompt("Введите месяц.");
-    switch (month) {
-        case "1":
-          msg = "Январь";
-          break;
-        case "2":
-          msg = "Февраль";
-          break;
-        case "3":
-          msg = "Март";
-          break;
-        case "4":
-          msg = "Апрель";
-          break;
-        case "5":
-          msg = "Май";
-          break;
-        case "6":
-          msg = "Июнь";
-          break;
-        case "7":
-          msg = "Июль";
-          break;
-        case "8":
-          msg = "Август";
-          break;
-        case "9":
-          msg = "Сентябрь";
-          break;
-        case "10":
-          msg = "Октябрь";
-          break;
-        case "11":
-          msg = "Ноябрь";
-          break;
-        case "12":
-          msg = "Декабрь";
-          break;
-          default:
-            lang = "?"
-      }
-    break;
-  case "ua":
-    lang = "Українською";
-    month = prompt("Введіть місяць.");
-    switch (month) {
-      case "1":
-        msg = "Січень";
-        break;
-      case "2":
-        msg = "Лютий";
-        break;
-      case "3":
-        msg = "Березень";
-        break;
-      case "4":
-        msg = "Квітень";
-        break;
-      case "5":
-        msg = "Травень";
-        break;
-      case "6":
-        msg = "Червень";
-        break;
-      case "7":
-        msg = "Липень";
-        break;
-      case "8":
-        msg = "Серпень";
-        break;
-      case "9":
-        msg = "Вересень";
-        break;
-      case "10":
-        msg = "Жовтень";
-        break;
-      case "11":
-        msg = "Листопад";
-        break;
-      case "12":
-        msg = "Грудень";
-        break;
-        default:
-            lang = "?"
-    }
+// При виклику функції test() буде виведено локальну змінну a зі значенням 2, а не глобальну змінну a зі значенням 1, оскільки функція має доступ до своєї власної локальної області видимості.
+let a = 1; // глобальна змінна
+
+function test() {
+let a = 2; // локальна змінна
+console.log(a); // виводимо локальну змінну, a = 2
 }
-console.log(`${msg} will be on ${lang} language.`)
+
+test(); // викликаємо функцію, виведе 2
+console.log(a); // виводимо глобальну змінну, a = 1
+
+
+
+// Якщо змінна lang має значення 'ua', то виведеться "Січень". Якщо значення 'en', то виведеться "January". Якщо значення 'fr', то виведеться "Janvier". Якщо значення не входить в задані варіанти, то виведеться "Невідомо".
+let lang = prompt("Введіть мову");
+let month = '';
+switch(lang) {
+case 'ua':
+month = 'Січень';
+break;
+case 'en':
+month = 'January';
+break;
+case 'fr':
+month = 'Janvier';
+break;
+default:
+month = 'Невідомо';
+break;
+}
+console.log(month);
+
+
+
+// Якщо користувач введе "Кава", то в консоль виведеться "Вартість вашого напою: 25 грн". Якщо користувач введе "Чай", то в консоль виведеться "Вартість вашого напою: 15 грн". Якщо користувач введе "Сік", то в консоль виведеться "Вартість вашого напою:
+
+let drink = prompt("Який напій ви бажаєте купити? (Кава, Чай, Сік)");
+let price = 0;
+switch(drink) {
+case 'Кава':
+price = 25;
+break;
+case 'Чай':
+price = 15;
+break;
+case 'Сік':
+price = 30;
+break;
+default:
+console.log("Такого напою немає у меню");
+break;
+}
+if(price > 0) {
+console.log(`Вартість вашого напою: ${price} грн`);
+}
+
